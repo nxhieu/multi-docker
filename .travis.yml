@@ -8,14 +8,14 @@ script:
   - docker run -e CI=true hieu/react-test npm test
 
 after_success:
-  - docker build -t hieu/multi-client ./client
-  - docker build -t hieu/multi-nginx ./nginx
-  - docker build -t hieu/multi-server ./server
-  - docker build -t hieu/multi-worker ./worker
+  - docker build -t hieu96/multi-client ./client
+  - docker build -t hieu96/multi-nginx ./nginx
+  - docker build -t hieu96/multi-server ./server
+  - docker build -t hieu96/multi-worker ./worker
   # Log in to the docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take those images and push them to docker hub
-  - docker push hieu/multi-client
-  - docker push hieu/multi-nginx
-  - docker push hieu/multi-server
-  - docker push hieu/multi-worker
+  - docker push hieu96/multi-client
+  - docker push hieu96/multi-nginx
+  - docker push hieu96/multi-server
+  - docker push hieu96/multi-worker
